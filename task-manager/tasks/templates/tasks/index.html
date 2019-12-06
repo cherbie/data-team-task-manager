@@ -1,31 +1,64 @@
 {% extends "base.html" %}
+
 {% block head %}
-<script >
+{% include "/bootstrap-css.html" %}
+
+<!-- Stylesheet -->
 {% endblock %}
 
-{% body %}
-<div>
-    <div>
-        <h1>{{ title }}</h1>
-    </div>
-    <div>
-        <div>
-            <div>
+{% block body %}
+<div class="container">
+    <h1 class="text-center" style="padding: 20px">{{ title }}</h1>
+</div>
+<div class="container" style="margin-bottom: 100px">
+    <div class="list-group">
+        <a href="#" class="list-group-item d-flex text-decoration-none">
+            <div class="col text-center">
                 <p>LE190203</p>
             </div>
-            <div>
+            <div class="col text-center">
                 <p>Change Request</p>
             </div>
-            <div>
+            <div class="col text-center">
                 <p>Clayton Herbst</p>
             </div>
-            <div>
-                <p>In-progress</p>
+            <div class="col text-center">
+                <p class="align-middle">In-progress</p>
             </div>
-            <div>
-                <p>DONE</p>
+            <div class="col text-center">
+                <button class="btn btn-outline-success">DONE</button>
             </div>
+        </a>
+        <a href="#" class="list-group-item d-flex text-decoration-none">
+            <div class="col text-center">
+                <p>LE190203</p>
+            </div>
+            <div class="col text-center">
+                <p>Change Request</p>
+            </div>
+            <div class="col text-center">
+                <p>Clayton Herbst</p>
+            </div>
+            <div class="col text-center">
+                <p class="align-middle">In-progress</p>
+            </div>
+            <div class="col text-center">
+                <button class="btn btn-outline-success">DONE</button>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="container">
+    <div class="container">
+        <h4 class="text-center" style="padding: 20px">Statistics</h4>
+    </div>
+    <div class="list-group">
+        <div class="list-group-item w-75 d-flex" style="justify-content: space-between; margin: auto;">
+            <p>Total Tasks</p>
+            <p>4</p>
         </div>
     </div>
 </div>
+
+{% include "/bootstrap-js.html" %}
 {% endblock %}

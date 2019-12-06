@@ -4,4 +4,4 @@ tasks = Blueprint('tasks', __name__, template_folder='templates')
 
 @tasks.route('/', defaults={'page': 'index'})
 def home(page):
-    return render_template('tasks/index.html', name='Clayton Herbst')
+    return render_template('tasks/index.html', name='Clayton Herbst', title="Task Pool")
