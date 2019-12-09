@@ -1,6 +1,6 @@
-from flask import Blueprint, abort, render_template
+from flask import render_template
+from . import tasks
 
-tasks = Blueprint('tasks', __name__, template_folder='templates', url_prefix='/tasks')
 
 @tasks.route('/', defaults={'page': 'index'})
 def home(page):
