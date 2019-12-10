@@ -1,5 +1,6 @@
 import os
 from read_env import read_env
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 read_env()
 

@@ -1,6 +1,6 @@
 from flask import render_template
-from . import projects
+from . import bp
 
-@projects.route('/')
+@bp.route('/')
 def index():
     return render_template('projects/index.html', title="Projects")

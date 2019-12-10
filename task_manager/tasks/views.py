@@ -1,7 +1,7 @@
 from flask import render_template
-from . import tasks
+from . import bp
 
 
-@tasks.route('/', defaults={'page': 'index'})
+@bp.route('/', defaults={'page': 'index'})
 def home(page):
     return render_template('tasks/index.html', name='Clayton Herbst', title="Task Pool")

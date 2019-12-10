@@ -4,8 +4,9 @@ from . import db
 
 class User(db.Model):
     __tablename__ = 'Users'
+    sqlite_autoincrement = True
 
-    id = db.Column(db.Integer, primary_key=True, sqlite_autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(100), unique=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
@@ -16,8 +17,9 @@ class User(db.Model):
 
 class Task(db.Model):
     __tablename__ = 'Tasks'
+    sqlite_autoincrement = True
 
-    id = db.Column(db.Integer, primary_key=True, sqlite_autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True)
     task_id = db.Column(db.Integer, unique=True)
     project_id = db.Column(db.String(50), unique=True)
     create_date = db.Column(db.Date)
@@ -32,20 +34,22 @@ class Task(db.Model):
 
 class Board(db.Model):
     __tablename__ = 'Boards'
-    
-    id = db.Column(db.Integer, primary_key=True, sqlite_autoincrement=True)
+    sqlite_autoincrement = True
+
+    id = db.Column(db.Integer, primary_key=True)
     board_id = db.Column(db.String(100), unique=True)
     project_id = db.Column(db.String(100), unique=True)
-    tasks = db.Column(db.Integer, unique=true) # one-to-many with related task id's
-    groups = db.Column(db.Integer, unique=true) # one-to-many with related board group id's (cards)
+    tasks = db.Column(db.Integer, unique=True) # one-to-many with related task id's
+    groups = db.Column(db.Integer, unique=True) # one-to-many with related board group id's (cards)
 
     def __repr__(self):
         return '<Board id:{}, project_id:{}>'.format(self.board_id, self.project_id)
 
 class Project(db.Model):
     __tablename__ = 'Projects'
+    sqlite_autoincrement = True
 
-    id = db.Column(db.Integer, primary_key=True, sqlite_autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.String(100))
     name = db.Column(db.String(100))
     status = db.Column(db.String(50)) # name/description of status
