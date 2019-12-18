@@ -12,14 +12,20 @@ def create_app(config_class=Config):
     
     db.init_app(app)
     from . import models
-    from . import connection
-    register(app,db)
+    from .connection import set_globals
+    register(app, db)
+    
+    with app.app_context():
+        set_globals(db)
 
     from .tasks import bp as tasks
     from .projects import bp as projects
+    from .views import register_views
     app.register_blueprint(tasks)
     app.register_blueprint(projects)
+    register_views(app)
 
+    
     if __name__ == '__main__':
         app.run(host=config_class.HOST, port=config_class.PORT, debug=True)
     

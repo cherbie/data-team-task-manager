@@ -8,6 +8,5 @@ __pycache__/
 .DS_Store
 
 # IGNORE ENVIRONMENT
-.env
-
+.envß
 
