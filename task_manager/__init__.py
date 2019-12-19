@@ -10,19 +10,21 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     
+    # SET UP DATABASE
     db.init_app(app)
     from . import models
     from .connection import set_globals
+
+    # REGISTER CMD
     register(app, db)
     
+    # SET APP CONTEXT
     with app.app_context():
         set_globals(db)
 
-    from .tasks import bp as tasks
-    from .projects import bp as projects
+    # SET VIEWS FOR ROUTES
+
     from .views import register_views
-    app.register_blueprint(tasks)
-    app.register_blueprint(projects)
     register_views(app)
 
     

@@ -1,6 +1,9 @@
-from flask import render_template
+from flask import render_template, Response
+from .request import RequestAPI
+import json
 
 def register_views(app):
     @app.route('/')
     def home():
-        return render_template('/index.html')
+        r = RequestAPI()
+        return json.dumps(r.getPMData())
